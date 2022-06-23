@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kamers!{% endblock %}
+
+{% block body %}
+<div class="container">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); width: 100%;">
+{% for room in rooms %}
+
+<div class="card" style="width: 100%; height: 100%;">
+        <div class="card-image">
+          <img src={{room.img}} style="max-width: 100%;>
+          <span class="card-title">Kamer: {{room.id}}</span>
+          <p>{{room.Name}}</p>
+          <div style="display: flex; flex-direction: row;">
+            {% for index, extra in room.getExtra%}
+                <p>
+                    {{ extra.name}}
+                    {% if index != extra|length %}
+                    , 
+                    {% endif %} 
+                </p>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="card-content">
+          <p>{{room.description}}</p>
+          <button class="btn-primary">Reserveer</button>
+        </div>
+      </div>
+{% endfor %}
+</div>
+</div>
+</a>
+{% endblock %}

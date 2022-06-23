@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="styling.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<header>
+		<nav class="navbar navbar-light bg-light style=height: 100px; position="absolute"">
+			<i style="color: #444; font-size: 2rem;" class="pb-1 fad fa-cauldron"></i>
+			<a class="navbar-brand" href="{{ path('app_homepage') }}"><img src="/img/pino2.png" height="36" left="0" margin-right="auto"></a>
+			<a class="pl-2 d-inline" href="{{ path('app_homepage') }}" style="color: #444;">Home</a>
+			<a class="pl-2 d-inline" href="{{ path('app_about') }}" style="color: #444;">Over ons</a>
+			<a class="pl-2 d-inline" href="{{ path('app_bookings') }}" style="color: #444;">Reserveringen</a>
+		 	{% if is_granted(("ROLE_ADMIN")) %}
+			<a class="pl-2 d-inline" href="{{ path('app_logout') }}" style="color: #444;">Uitloggen</a>
+			<a href="{{ path('app_order_index') }}">Orders</a>
+			{% else %}
+			<a class="pl-2 d-inline" href="{{ path('app_login') }}" style="color: #444;">Inloggen</a>
+			{% endif %}
+			
+			
+		</nav>
+
+	</header>
+	<body></body>
+</html></html></div>{% block body %}{% endblock %}</body></html>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<body>
+    <div class="hero-image">
+				<div class="hero-text">
+                    <br>
+					<h1>Hotel lä Píno</h1>
+					<p>Welkom on our website!</p>
+                    <br>
+                    <br>
+				</div>
+			</div>
+		<div class="container">
+			<div class="card-deck">
+				<div class="card">
+					<img src="img/slaapkamer1.jpg" alt="Bedroom" style="width:100%">
+					<div class="container">
+						<h4>
+							<b>Kamers</b>
+						</h4>
+						<a href="{{ path('app_reservation')}}">Reserveer nu</a>
+					</div>
+				</div>
+				<div class="card">
+					<img src="img/reception1.jpg" alt="Banner" style="width:100" style="width:100%">
+					<div class="container">
+						<h4>
+							<b>Contact ons</b>
+						</h4>
+						<a href="{{ path('app_contact')}}">Bericht ons</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+{% endblock %}
